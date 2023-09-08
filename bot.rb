@@ -8,6 +8,18 @@ require 'koala'
 bot = Discordrb::Bot.new(token: 'YOUR_DISCORD_BOT_TOKEN')
 fb = Koala::Facebook::API.new('YOUR_FACEBOOK_API_TOKEN')
 
+bot.ready? do
+  puts "herro, my name is (#{bot.bot_user.name})!"
+end
+
+# bot.message do |event|
+#   # Your bot's commands and other operations can be implemented here
+#   case event.content.downcase
+#   when '!instagram'
+#     event.respond("pong")
+#   end
+# end
+
 #In this example, the bot listens for messages starting with !facebook. It then uses the Koala gem to fetch the latest 5 posts from the user's Facebook account and outputs the post message and creation time on Discord.
 
 bot.message(start_with: '!facebook') do |event|
